@@ -1,0 +1,12 @@
+{
+    "userId": "",
+    "oauthToken": "",
+    "clientId": "",
+    "clientSecret": "",
+    "sessionSecret": "",
+    "channelId": "",
+    "botId": "",
+    "eventsubWebsocket": "wss://eventsub.wss.twitch.tv/ws",
+    "callbackUrl": "http://localhost:3000/auth/twitch/callback",
+    "dbUri": ""
+}

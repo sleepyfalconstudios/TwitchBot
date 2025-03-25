@@ -1,0 +1,33 @@
+{{> nav}}
+<h2>{{info.Title}}</h2>
+<p>ID = {{info.Id}}</p>
+<a class="delete" data-id="{{info.Id}}">Delete</a>
+<p>Content warnings:</p>
+<ul>
+    {{#each info.ContentWarning}}
+    <li>{{this}}</li>
+    {{/each}}
+</ul>
+<p>Interesting info</p>
+<ul>
+    {{#each info.InterestingInfo}}
+    <li>{{this}}</li>
+    {{/each}}
+</ul>
+<a href="/manage-stories/{{info.PreviousTale}}">previous tale</a>
+<a href="/manage-stories/{{info.NextTale}}">next tale</a>
+
+<script>
+    const deleteLink = document.querySelector('a.delete')
+
+    deleteLink.addEventListener('click', (e) => {
+        const endpoint = `/manage-stories/${deleteLink.dataset.id}`
+
+        fetch(endpoint, {
+            method: 'DELETE'
+        })
+            .then((response) => response.json())
+            .then((data) => window.location.href = data.redirect)
+            .catch((err) => console.log(err))
+    })
+</script>

@@ -1,0 +1,13 @@
+{{> nav}}
+<h2>Adding a user's preferred name!</h2>
+<div class="add-story">
+    <p>Id: {{chatter.UserId}}</p>
+    <p>User Name: {{chatter.UserName}}</p>
+    <p>Capitalised User Name: {{chatter.capitalisedUserName}}</p>
+    <form action="/add-preferred-name" method="POST">
+        <input type="hidden" id="userId" name="userId" value="{{chatter.UserId}}">
+        <label for="preferred-name">Preferred Name</label>
+        <input type="text" id="preferred-name" name="preferredName"><br />
+        <button>Submit</button>
+    </form>
+</div>

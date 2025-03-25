@@ -1,0 +1,28 @@
+<div class="obsOverlayBox white">
+    <div class="header">
+        <div class="infoBox">
+            <p><b>Content warnings</b></p>
+            <ul>
+                {{#each info.ContentWarning}}
+                <li>{{this}}</li>
+                {{/each}}
+            </ul>
+        </div>
+
+        <h2>{{info.Title}}</h2>
+
+        <div class="infoBox right">
+
+            <p><b>Interesting info</b></p>
+            <ul>
+                {{#each info.InterestingInfo}}
+                <li>{{this}}</li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+    <div class="footer">
+        <a href="/overlay/{{info.PreviousTale}}">previous tale: {{info.PreviousTaleName}}</a>
+        <a href="/overlay/{{info.NextTale}}">next tale: {{info.NextTaleName}}</a>
+    </div>
+</div>

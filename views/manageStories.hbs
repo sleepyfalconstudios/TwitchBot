@@ -1,0 +1,28 @@
+{{> nav}}
+<h2>Here's some stories!</h2>
+{{#if stories}}
+<ul>
+    {{#each stories}}
+    <li>
+        <a href="/manage-stories/{{this.Id}}">
+            <h2>{{this.Title}}</h2>
+        </a>
+        <p>Story Id: {{this.Id}}</p>
+        <p>Content warnings:</p>
+        <ul>
+            {{#each this.ContentWarning}}
+            <li>{{this}}</li>
+            {{/each}}
+        </ul>
+        <p>Interesting info</p>
+        <ul>
+            {{#each this.TnterestingInfo}}
+            <li>{{this}}</li>
+            {{/each}}
+        </ul>
+        <a href="/manage-stories/{{this.PreviousTale}}">previous tale</a>
+        <a href="/manage-stories/{{this.NextTale}}">next tale</a>
+    </li>
+    {{/each}}
+</ul>
+{{/if}}

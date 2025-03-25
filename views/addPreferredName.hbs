@@ -1,0 +1,11 @@
+{{> nav}}
+<h2>Adding a user's preferred name!</h2>
+<div class="add-story">
+    <form action="/add-preferred-name" method="POST">
+        <label for="userId">UserId</label>
+        <input type="text" id="userId" name="userId" required><br />
+        <label for="preferred-name">Preferred Name</label>
+        <input type="text" id="preferred-name" name="preferredName"><br />
+        <button>Submit</button>
+    </form>
+</div>

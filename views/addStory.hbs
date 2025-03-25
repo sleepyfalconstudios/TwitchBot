@@ -1,0 +1,17 @@
+{{> nav}}
+<h2>Adding a story!</h2>
+<div class="add-story">
+    <form action="/add-story" method="POST">
+        <label for="title">Title of story</label>
+        <input type="text" id="title" name="title" required><br/>
+        <label for="content-warning">Content warning (separate with ;)</label>
+        <input type="text" id="content-warning" name="contentWarning"><br/>
+        <label for="info">Interesting info (separate with ;)</label>
+        <input type="text" id="info" name="interestingInfo"><br/>
+        <label for="next-tale">ID of next tale</label>
+        <input type="text" id="next-tale" name="nextTale" required><br/>
+        <label for="prev-tale">ID of previous tale</label>
+        <input type="text" id="prev-tale" name="previousTale" required><br/>
+        <button>Submit</button>
+    </form>
+</div>

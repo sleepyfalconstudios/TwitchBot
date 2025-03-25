@@ -1,0 +1,20 @@
+{{> nav}}
+<div class="container">
+    <h2>Chatters</h2>
+    <p>These are chatters that are stored in our DB, either because they are followers,
+        or because they are VIPs or regulars who have a preferred name that the bot is to call
+        them by.
+    </p>
+    {{#if chatters}}
+    <ul>
+        {{#each chatters}}
+        <p>UserId: {{this.Name.UserId}}</p>
+        <p>UserName: {{this.Name.UserName}}</p>
+        <p>Capitalised UserName: {{this.Name.CapitalisedUserName}}</p>
+        <p>Preferred Name: {{this.Name.PreferredName}}</p>
+        <a href="/add-preferred-name/{{this.UserId}}">Change preferred name</a>
+        <hr />
+        {{/each}}
+    </ul>
+    {{/if}}
+</div>
