@@ -24,7 +24,7 @@ A settings file with blank strings is provided. The values need to be filled out
 
 ### Twitch
 1. start the program
-2. go to <a href="http://localhost:3000/twitch" target="_blank">
+2. go to ["http://localhost:3000/twitch"]("http://localhost:3000/twitch")
 3. log in with your Twitch bot (not streamer) account. The bot needs  to be a moderator on your streaming channel.
 4. give the program the necessary permissions when prompted by Twitch
 
@@ -32,8 +32,8 @@ A settings file with blank strings is provided. The values need to be filled out
 <b>Follower information</b> will be stored automatically, specifically the colour with which they show in twitch chat, the location of their flower prop in Warudo, and their user Id. 
 
 For chatters, a <b>preferred name</b> can also be given.
-Go to <a href="http://localhost:3000/add-preferred-name" target="_blank"> if you know the user's Id (there are several sites that will provide it),
-or go to <a href="http://localhost:3000/manage-chatters" target="_blank"> if you have a list of chatters already and want to change it for one of them. 
+Go to ["http://localhost:3000/add-preferred-name"]("http://localhost:3000/add-preferred-name") if you know the user's Id (there are several sites that will provide it),
+or go to ["http://localhost:3000/manage-chatters"]("http://localhost:3000/manage-chatters") if you have a list of chatters already and want to change it for one of them. 
 
 The bot will use names with the following priority when responding to a user:
 1. preferred name
@@ -60,7 +60,7 @@ A Warudo mod will be made available early April that will contain everything nec
 ### OBS
 An overlay for OBS is provided at `http://localhost:3000/overlay/:id` where `:id` needs to be replaced with the id of the current story. You can find this on the story management pages
 
-The story information can be managed through <a href="http://localhost:3000/manage-stories" target="_blank"> and new stories can be added at <a href="http://localhost:3000/manage-stories" target="_blank">.   
+The story information can be managed through ["http://localhost:3000/manage-stories"]("http://localhost:3000/manage-stories") and new stories can be added at ["http://localhost:3000/manage-stories"]("http://localhost:3000/manage-stories").   
 
 ### Database
 The project is set up to make use of a Mongo database. You will need to set up your own [Mongo database](https://www.mongodb.com/).
