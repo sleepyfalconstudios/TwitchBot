@@ -66,7 +66,6 @@ The story information can be managed through [http://localhost:3000/manage-stori
 The project is set up to make use of a Mongo database. You will need to set up your own [Mongo database](https://www.mongodb.com/).
 
 ## Known issues
-- you cannot delete stories
 - you cannot update story information
 - the pages have no good style
-- the nav bar is missing links
+- deleting chatters is not currently working
