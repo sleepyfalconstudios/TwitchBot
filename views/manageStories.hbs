@@ -1,12 +1,9 @@
-{{> nav}}
 <h2>Here's some stories!</h2>
 {{#if stories}}
-<ul>
+<div class="listBlock">
     {{#each stories}}
-    <li>
-        <a href="/manage-stories/{{this.Id}}">
-            <h2>{{this.Title}}</h2>
-        </a>
+    <a class="listItem" href="/manage-stories/{{this.Id}}">
+        <h3>{{this.Title}}</h3>
         <p>Story Id: {{this.Id}}</p>
         <p>Content warnings:</p>
         <ul>
@@ -20,9 +17,7 @@
             <li>{{this}}</li>
             {{/each}}
         </ul>
-        <a href="/manage-stories/{{this.PreviousTale}}">previous tale</a>
-        <a href="/manage-stories/{{this.NextTale}}">next tale</a>
-    </li>
+    </a>
     {{/each}}
-</ul>
+</div>
 {{/if}}

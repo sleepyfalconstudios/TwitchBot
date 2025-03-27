@@ -1,65 +1,140 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.centerAligned {
+    text-align: center;
+}
+
 .container {
+    width: 90%;
     max-width: 700px;
     margin: auto;
 }
 
-.white {
-    color: white;
-}
-
-.obsOverlayBox {
-    box-sizing: border-box;
-    padding: 20px 100px 60px 50px;
-    overflow: hidden;
-    width: 1920px;
-    height: 1080px;
-    font-size: 50px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.header {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-}
-
-.header h2 {
+nav {
     margin: 0;
     padding: 0;
-}
-
-.infoBox {
-    display: flex;
-    flex-direction: column;
-    font-size: 30px;
-    width: 300px;
-}
-
-.infoBox p {
-    margin: 0;
-    padding: 0;
-}
-
-.infoBox ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-}
-
-.right {
-    text-align: right;
-}
-
-.footer {
-    width: 100%;
+    background-color: black;
     display: flex;
     justify-content: space-evenly;
 }
 
-.footer a {
+nav a {
+    color: wheat;
+    padding: 1rem;
+    display: block;
+    flex-grow: 1;
+    text-align: center;
     text-decoration: none;
-    color: white
+    border: 2px solid white;
+}
+
+nav a:hover {
+    background-color: darkslategrey;
+    border: 0;
+}
+
+form {
+    margin-top: 2rem;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1rem;
+}
+
+.formElement {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.formElement p {
+    margin: 0;
+}
+
+input {
+    border-radius: 3px;
+    outline: none;
+    flex-grow: 1;
+}
+
+label {
+    color: rgb(82, 82, 82);
+    font-weight: bold;
+    width: 23%;
+}
+
+.label {
+    color: rgb(82, 82, 82);
+    font-weight: bold;
+    margin: 0;
+    width: 20%;
+}
+
+input:focus {
+    background-color: rgb(218, 233, 205);
+}
+
+.submit {
+    margin-top: 2rem;
+    background-color: rgb(157, 231, 87);
+    padding: 0.5rem;
+    border: none;
+    border-radius: 3px;
+}
+
+.submit:hover {
+    background-color: rgb(135, 187, 87);
+}
+
+.submit:active {
+    background-color: rgb(105, 138, 75);
+}
+
+.listBlock {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.listItem {
+    background-color: rgb(209, 209, 209);
+    width: 12rem;
+    padding: 0.8rem;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1rem;
+    text-decoration: none;
+    color: black;
+}
+
+.listItem:hover {
+    background-color: rgb(175, 175, 175);
+    cursor: pointer;
+}
+
+.listItem:active {
+    background-color: rgb(117, 117, 117);
+}
+
+.listItemRow {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 0.2rem;
+}
+
+.listItemRow p {
+    margin: 0;
+}
+
+.delete {
+    color: darkred;
+    font-size: 0.8rem;
+}
+
+.delete:hover {
+    color: white;
+    background-color: darkred;
 }
