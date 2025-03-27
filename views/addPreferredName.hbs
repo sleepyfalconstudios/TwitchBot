@@ -1,11 +1,16 @@
-{{> nav}}
-<h2>Adding a user's preferred name!</h2>
-<div class="add-story">
-    <form action="/add-preferred-name" method="POST">
+<h2>Adding a user's preferred name</h2>
+<p>This name will be used by the bot when it responds to a chatter with their name.</p>
+<p>You can use this site to get someone's user Id: <a
+        href="https://www.streamweasels.com/tools/convert-twitch-username- to-user-id/"
+        target="_blank">https://www.streamweasels.com/tools/convert-twitch-username- to-user-id/</a></p>
+<form action="/add-preferred-name" method="POST">
+    <div class="formElement">
         <label for="userId">UserId</label>
-        <input type="text" id="userId" name="userId" required><br />
+        <input type="text" id="userId" name="userId" required>
+    </div>
+    <div class="formElement">
         <label for="preferred-name">Preferred Name</label>
-        <input type="text" id="preferred-name" name="preferredName"><br />
-        <button>Submit</button>
-    </form>
-</div>
+        <input type="text" id="preferred-name" name="preferredName">
+    </div>
+    <button class="submit">Submit</button>
+</form>

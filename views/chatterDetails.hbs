@@ -1,0 +1,42 @@
+<h2>Chatter details</h2>
+<p>The preferred name will be used by the bot when it responds to a chatter with their name.</p>
+<form action="/add-preferred-name" method="POST">
+    <div class="formElement">
+        <p class="label">Id: </p>
+        <p>{{chatter.UserId}}</p>
+    </div>
+    <div class="formElement">
+        <p class="label">User Name: </p>
+        <p>{{chatter.UserName}}</p>
+    </div>
+    <div class="formElement">
+        <p class="label">Capitalised User Name: </p>
+        <p> {{chatter.CapitalisedUserName}}</p>
+    </div>
+    <input type="hidden" id="userId" name="userId" value="{{chatter.UserId}}">
+    <div class="formElement">
+        <label for="preferred-name">Preferred Name</label>
+        <input type="text" id="preferred-name" name="preferredName"><br />
+    </div>
+    <button class="submit">Submit</button>
+    <button class="delete" data-id="{{chatter.UserId}}">Delete</button>
+</form>
+
+<script>
+    const deleteLink = document.querySelector('button.delete')
+
+    deleteLink.addEventListener('click', (e) => {
+        e.preventDefault()
+
+        if (confirm("Are you sure you want to delete this user info?")) {
+            const endpoint = `/manage-chatters/${deleteLink.dataset.id}`
+
+            fetch(endpoint, {
+                method: 'DELETE'
+            })
+                .then((response) => response.json())
+                .then((data) => window.location.href = data.redirect)
+                .catch((err) => console.log(err))
+        }
+    })
+</script>

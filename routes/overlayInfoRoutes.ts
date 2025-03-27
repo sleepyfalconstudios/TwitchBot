@@ -25,7 +25,7 @@ OverlayInfoRouter.get('/add-story', (req: Request, res: Response) => {
 
 OverlayInfoRouter.get('/overlay/:id', async (req: Request, res: Response) => {
     const overlay = await overlayService.GetOverlayById(req.params.id, true)
-    res.render('obsOverlay', { pageName: "overlay", info: overlay })
+    res.render('obsOverlay', { layout: "obsOverlay", pageName: "overlay", info: overlay })
 })
 
 OverlayInfoRouter.delete('/manage-stories/:id', (req: Request, res: Response) => {

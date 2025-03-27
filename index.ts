@@ -84,6 +84,12 @@ passport.use('twitch', new OAuth2Strategy({
 app.use(TwitchRouter)
 app.use(OverlayInfoRouter)
 app.use(ChatterRouter)
+app.get('/home', (req: Request, res: Response) => {
+    res.render("home", { pageName: "home" })
+})
+app.get('/', (req: Request, res: Response) => {
+    res.redirect("/home")
+})
 
 app.use((req: Request, res: Response) => {
     res.status(404).render('404')
