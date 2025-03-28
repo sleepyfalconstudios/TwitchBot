@@ -4,16 +4,19 @@
     {{#each stories}}
     <a class="listItem" href="/manage-stories/{{this.Id}}">
         <h3>{{this.Title}}</h3>
-        <p>Story Id: {{this.Id}}</p>
-        <p>Content warnings:</p>
+        <div class="listItemRow">
+            <p class="label">StoryId: </p>
+            <p class="smaller">{{this.Id}}</p>
+        </div>
+        <p class="label">Content warnings:</p>
         <ul>
             {{#each this.ContentWarning}}
             <li>{{this}}</li>
             {{/each}}
         </ul>
-        <p>Interesting info</p>
+        <p class="label">Interesting info</p>
         <ul>
-            {{#each this.TnterestingInfo}}
+            {{#each this.InterestingInfo}}
             <li>{{this}}</li>
             {{/each}}
         </ul>

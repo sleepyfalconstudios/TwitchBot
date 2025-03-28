@@ -6,7 +6,7 @@ export class OverlayService {
     readonly overlayRepository = new OverlayRepository()
 
     async AddOvelay(info: OverlayInformation) {
-        await this.overlayRepository.SaveOverlayToDb(info)
+        await this.overlayRepository.SaveOrUpdateOverlayToDb(info)
     }
 
     async DeleteOverlay(overlayId: string) {

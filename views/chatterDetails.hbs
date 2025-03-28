@@ -4,19 +4,24 @@
     <div class="formElement">
         <p class="label">Id: </p>
         <p>{{chatter.UserId}}</p>
+        <input type="hidden" id="userId" name="userId" value="{{chatter.UserId}}">
     </div>
     <div class="formElement">
         <p class="label">User Name: </p>
-        <p>{{chatter.UserName}}</p>
+        <p>{{chatter.Name.UserName}}</p>
     </div>
     <div class="formElement">
         <p class="label">Capitalised User Name: </p>
-        <p> {{chatter.CapitalisedUserName}}</p>
+        <p> {{chatter.Name.CapitalisedUserName}}</p>
     </div>
-    <input type="hidden" id="userId" name="userId" value="{{chatter.UserId}}">
+    <div class="formElement">
+        <p class="label">Colour:</label>
+        <div class="colourSquare" style="background-color: {{chatter.Colour}};"></div>
+        <p>{{chatter.Colour}}</p>
+    </div>
     <div class="formElement">
         <label for="preferred-name">Preferred Name</label>
-        <input type="text" id="preferred-name" name="preferredName"><br />
+        <input type="text" id="preferred-name" name="preferredName" value="{{chatter.Name.PreferredName}}"><br />
     </div>
     <button class="submit">Submit</button>
     <button class="delete" data-id="{{chatter.UserId}}">Delete</button>

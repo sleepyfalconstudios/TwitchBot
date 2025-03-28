@@ -7,7 +7,7 @@
 <div class="listBlock">
     {{#each chatters}}
     <a class="listItem" href="/manage-chatters/{{this.Name.UserId}}">
-        <h3>{{this.Name.PreferredName}}</h3>
+        <h3 style="color: {{this.Colour}};">{{this.Name.PreferredName}}</h3>
         <div class="listItemRow">
             <p class="label">UserId: </p>
             <p>{{this.Name.UserId}}</p>

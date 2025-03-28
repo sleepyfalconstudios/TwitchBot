@@ -142,9 +142,23 @@ export class ChatterService {
     }
 
     async GetChatterNameById(chatterId: string): Promise<ChatterName> {
-        const chatterNames = this.GetChatterNames()
-        const name = (await chatterNames).find(c => c.UserId === chatterId)
+        const chatterNames = await this.GetChatterNames()
+        const name = chatterNames.find(c => c.UserId === chatterId)
         return name
+    }
+
+    async GetFullChatterById(chatterId: string): Promise<Chatter> {
+        const chatters = await this.GetChatters()
+        let chatter = chatters.find(c => c.UserId === chatterId)
+        const name = await this.GetChatterNameById(chatterId)
+        if (!chatter) {
+            if (name) {
+                chatter = { UserId: name.UserId, Name: name } as Chatter
+            }
+        } else if (!chatter.Name) {
+            chatter.Name = name
+        }
+        return chatter
     }
 
     async GetChatters(): Promise<Chatter[]> {

@@ -1,19 +1,37 @@
 import { OverlayInformation, OverlayInformationDto } from "../models/OverlayInformation";
 
 export class OverlayRepository {
-    async SaveOverlayToDb(info: OverlayInformation) {
-        const dto = new OverlayInformationDto({
-            title: info.Title,
-            contentWarning: info.ContentWarning,
-            interestingInfo: info.InterestingInfo,
-            nextTale: info.NextTale,
-            previousTale: info.PreviousTale
-        })
+    async SaveOrUpdateOverlayToDb(info: OverlayInformation) {
+        if (!info.Id) {
+            const dto = new OverlayInformationDto({
+                title: info.Title,
+                contentWarning: info.ContentWarning,
+                interestingInfo: info.InterestingInfo,
+                nextTale: info.NextTale,
+                previousTale: info.PreviousTale
+            })
 
-        const result = await dto.save();
+            const result = await dto.save()
 
-        if (result.errors) {
-            console.log("failed to save overlays to database: ", result.errors.message)
+            if (result?.errors) {
+                console.log("failed to save overlays to database: ", result.errors.message)
+            }
+        } else {
+            const result = await OverlayInformationDto.findByIdAndUpdate(
+                info.Id,
+                {
+                    title: info.Title,
+                    contentWarning: info.ContentWarning,
+                    interestingInfo: info.InterestingInfo,
+                    nextTale: info.NextTale,
+                    previousTale: info.PreviousTale
+                },
+                { upsert: true, new: true }
+            )
+
+            if (result?.errors) {
+                console.log("failed to save overlays to database: ", result.errors.message)
+            }
         }
     }
 
@@ -31,7 +49,7 @@ export class OverlayRepository {
         if (result.length > 0) {
             return result.map(r => {
                 return {
-                    Id: r._id.toString(),
+                    Id: r._id?.toString(),
                     Title: r.title,
                     ContentWarning: r.contentWarning,
                     InterestingInfo: r.interestingInfo,

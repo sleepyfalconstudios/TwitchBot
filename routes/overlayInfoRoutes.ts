@@ -12,8 +12,16 @@ OverlayInfoRouter.get('/manage-stories', async (req: Request, res: Response) => 
 
 OverlayInfoRouter.get('/manage-stories/:id', async (req: Request, res: Response) => {
     const overlay = await overlayService.GetOverlayById(req.params.id)
+    const displayableOverlay = {
+        Id: overlay.Id,
+        Title: overlay.Title,
+        ContentWarning: overlay.ContentWarning.join(';'),
+        InterestingInfo: overlay.InterestingInfo.join(';'),
+        NextTale: overlay.NextTale,
+        PreviousTale: overlay.PreviousTale,
+    }
     if (overlay?.Title) {
-        res.render('storyDetails', { pageName: overlay.Title, info: overlay })
+        res.render('storyDetails', { pageName: overlay.Title, info: displayableOverlay })
     } else {
         res.render('404')
     }
@@ -35,6 +43,7 @@ OverlayInfoRouter.delete('/manage-stories/:id', (req: Request, res: Response) =>
 
 OverlayInfoRouter.post('/add-story', (req: Request, res: Response) => {
     overlayService.AddOvelay({
+        Id: req.body.id,
         Title: req.body.title,
         ContentWarning: req.body.contentWarning.split(';'),
         InterestingInfo: req.body.interestingInfo.split(';'),
