@@ -34,12 +34,12 @@ export class TwitchRepository extends EventEmitter {
             else if (data.metadata.subscription_type === 'channel.chat.message') {
                 let info = data.payload.event
 
-                if (info && info.chatter_user_id !== Settings.botId) {
+                if (info && info.user_id !== Settings.botId) {
                     let message = {
-                        ChatterName: info.chatter_user_login,
-                        CapitalisedChatterName: info.chatter_user_name,
+                        ChatterName: info.user_login,
+                        CapitalisedChatterName: info.user_name,
                         Message: info.message?.text?.trim(),
-                        ChatterId: info.chatter_user_id,
+                        ChatterId: info.user_id,
                         IsMod: info.badges?.some((b: any) => b.set_id === 'moderator'),
                         Source: StreamingSource.Twitch
                     } as ChatMessage
@@ -51,7 +51,7 @@ export class TwitchRepository extends EventEmitter {
             // follows
             if (data?.payload?.subscription && data?.payload?.event) {
                 if (data.payload.subscription.type === 'channel.follow') {
-                    this.emit('follow', data.payload.event.chatter_user_id)
+                    this.emit('follow', data.payload.event.user_id)
                 }
             }
         })

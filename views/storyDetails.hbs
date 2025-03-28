@@ -1,32 +1,50 @@
 <h2>{{info.Title}}</h2>
-<p>ID = {{info.Id}}</p>
-<a class="delete" data-id="{{info.Id}}">Delete</a>
-<p>Content warnings:</p>
-<ul>
-    {{#each info.ContentWarning}}
-    <li>{{this}}</li>
-    {{/each}}
-</ul>
-<p>Interesting info</p>
-<ul>
-    {{#each info.InterestingInfo}}
-    <li>{{this}}</li>
-    {{/each}}
-</ul>
-<a href="/manage-stories/{{info.PreviousTale}}">previous tale</a>
-<a href="/manage-stories/{{info.NextTale}}">next tale</a>
+
+<form action="/add-story" method="POST">
+    <div class="formElement">
+        <p class="label">Id: </p>
+        <p class="smaller">{{info.Id}}</p>
+        <input type="hidden" id="id" name="id" value="{{info.Id}}">
+    </div>
+    <div class="formElement">
+        <label for="title">Title of story</label>
+        <input type="text" id="title" name="title" required value="{{info.Title}}">
+    </div>
+    <div class="formElement">
+        <label for="content-warning">Content warning (separate with ;)</label>
+        <input type="text" id="content-warning" name="contentWarning" value="{{info.ContentWarning}}">
+    </div>
+    <div class="formElement">
+        <label for="info">Interesting info (separate with ;)</label>
+        <input type="text" id="info" name="interestingInfo" value="{{info.InterestingInfo}}">
+    </div>
+    <div class="formElement">
+        <label for="next-tale">ID of next tale</label>
+        <input type="text" id="next-tale" name="nextTale" required value="{{info.NextTale}}">
+    </div>
+    <div class="formElement">
+        <label for="prev-tale">ID of previous tale</label>
+        <input type="text" id="prev-tale" name="previousTale" required value="{{info.PreviousTale}}">
+    </div>
+    <button class="submit">Submit</button>
+    <button class="delete" data-id="{{info.Id}}">Delete</button>
+</form>
 
 <script>
-    const deleteLink = document.querySelector('a.delete')
+    const deleteLink = document.querySelector('button.delete')
 
     deleteLink.addEventListener('click', (e) => {
-        const endpoint = `/manage-stories/${deleteLink.dataset.id}`
+        e.preventDefault()
 
-        fetch(endpoint, {
-            method: 'DELETE'
-        })
-            .then((response) => response.json())
-            .then((data) => window.location.href = data.redirect)
-            .catch((err) => console.log(err))
+        if (confirm("Are you sure you want to delete this story?")) {
+            const endpoint = `/manage-stories/${deleteLink.dataset.id}`
+
+            fetch(endpoint, {
+                method: 'DELETE'
+            })
+                .then((response) => response.json())
+                .then((data) => window.location.href = data.redirect)
+                .catch((err) => console.log(err))
+        }
     })
 </script>

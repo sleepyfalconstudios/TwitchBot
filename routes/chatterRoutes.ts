@@ -11,7 +11,7 @@ ChatterRouter.get('/manage-chatters', async (req: Request, res: Response) => {
 })
 
 ChatterRouter.get('/manage-chatters/:id', async (req: Request, res: Response) => {
-    const chatter = await chatterService.GetChatterNameById(req.params.id)
+    const chatter = await chatterService.GetFullChatterById(req.params.id)
     if (!chatter) {
         res.redirect('/manage-chatters')
     }

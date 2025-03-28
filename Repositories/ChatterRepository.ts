@@ -24,7 +24,6 @@ export class ChatterRepository {
     }
 
     async SaveChatterToDb(chatter: Chatter): Promise<boolean> {
-        console.log("follower", chatter)
         const result = await ChatterDto.findOneAndUpdate(
             { userId: chatter.UserId },
             { colour: chatter.Colour, dateFollowed: chatter.DateFollowed },
