@@ -16,6 +16,8 @@ For OBS it creates a page that functions as an OBS overlay with information abou
 
 It also has a few pages for managing stories and chatter information.
 
+<b>Note! This bot is not meant to be deployed anywhere. It's for running locally only. It requires no login and thus has no protection</b>
+
 ## How to use
 I would recommend using [nodemon](https://www.npmjs.com/package/nodemon) to run the program. Once you have installed nodemon, you can run the program with `nodemon index.ts`
 
