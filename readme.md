@@ -46,6 +46,7 @@ In the twitch_lists folder you will find one file containing chat command and on
 The commands contain:
 - commandText: a regex that will be tested on every message sent in the twitch chat
 - responseText: a function that accepts the username which can be inserted into the response text, and an array of strings. They can contain only one string if the response should always be the same, or several strings if one random one should be chosen
+- callback (optoinal): You can put a method here that will be called. The data contains the username, userId, and the triggering chat message text. This can be used to for example store suggestions to a database (The current only implementation)
 - chance: number between 0 and 1 that will determine what the chance is that the bot will respond if the command text comes up in chat
 - cooldown: currently not in use
 - modOnly: whether the command can be triggered by anyone or only mods
@@ -70,3 +71,4 @@ The project is set up to make use of a Mongo database. You will need to set up y
 - you cannot update story information
 - the pages have no good style
 - the nav bar is missing links
+- suggestions can only be saved, not retrieved

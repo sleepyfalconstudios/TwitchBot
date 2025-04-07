@@ -1,5 +1,6 @@
 import { ChatMessage } from "../models/ChatMessage";
 import { Chatter } from "../models/Chatter";
+import { CommandInput } from "../models/CommandInput";
 import { TwitchRepository } from "../Repositories/TwitchRepository";
 import { ChatCommands } from "../twitch_lists/ChatCommands";
 import { ChatTimers } from "../twitch_lists/ChatTimers";
@@ -47,6 +48,15 @@ export class StreamService {
                 if (command.chance >= Math.random()) {
                     let textVariants = command.responseText(chatter.Name.PreferredName ?? chatter.Name.CapitalisedUserName ?? chatter.Name.UserName ?? message.ChatterName)
                     let response = textVariants[Math.floor(Math.random() * textVariants.length)]
+                    if (command.callback) {
+                        console.log("we have callback")
+                        const callbackInfo = {
+                            userId: message.ChatterId,
+                            userName: message.ChatterName,
+                            message: message.Message
+                        } as CommandInput
+                        command.callback(callbackInfo)
+                    }
                     this.SendChatMessage(response)
                 }
             }

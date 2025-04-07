@@ -53,6 +53,7 @@ export class ChatterService {
             chatter = chatterById
         } else {
             const chatterByName = allChatters.find(c => c.Name.UserName === userName)
+
             if (!chatterByName) {
                 const newChatter = {
                     UserId: chatterId,

@@ -25,9 +25,12 @@ interface TwitchData {
             source_broadcaster_user_id: string,
             source_broadcaster_user_login: string,
             source_broadcaster_user_name: string,
-            user_id: string,
-            user_login: string,
-            user_name: string,
+            chatter_user_id: string, // for chat messages
+            chatter_user_login: string, // for chat messages
+            chatter_user_name: string, // for chat messages
+            user_id: string, // for follows
+            user_login: string, // for follows
+            user_name: string, // for follows
             message_id: string,
             source_message_id: string,
             message: {
